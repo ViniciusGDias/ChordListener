@@ -1,0 +1,6 @@
+flet
+shazamio
+soundcard
+soundfile
+requests
+beautifulsoup4
