@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gNQNaIpNXlY=",
+  "dgSpecHash": "McEjrvxeeo0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vinic\\Desktop\\ChordListener\\ChordListenerCS\\ChordListenerCS.csproj",
+  "projectFilePath": "c:\\Users\\Vinic\\Desktop\\Nova pasta\\ChordListenerCS\\ChordListenerCS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vinic\\.nuget\\packages\\htmlagilitypack\\1.12.4\\htmlagilitypack.1.12.4.nupkg.sha512",
     "C:\\Users\\Vinic\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

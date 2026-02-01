@@ -30,3 +30,36 @@ C:\Users\Vinic\Desktop\ChordListener\ChordListenerCS\obj\Debug\net9.0-windows\Ch
 C:\Users\Vinic\Desktop\ChordListener\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.genruntimeconfig.cache
 C:\Users\Vinic\Desktop\ChordListener\ChordListenerCS\obj\Debug\net9.0-windows\ref\ChordListenerCS.dll
 C:\Users\Vinic\Desktop\ChordListener\ChordListenerCS\bin\Debug\net9.0-windows\recognizer.py
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\recognizer.py
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\ChordListenerCS.exe
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\ChordListenerCS.deps.json
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\ChordListenerCS.runtimeconfig.json
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\ChordListenerCS.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\ChordListenerCS.pdb
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\HtmlAgilityPack.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\NAudio.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\NAudio.Asio.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\NAudio.Core.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\NAudio.Midi.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\NAudio.Wasapi.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\NAudio.WinForms.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\NAudio.WinMM.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.csproj.AssemblyReference.cache
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\MainWindow.g.cs
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\App.g.cs
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS_MarkupCompile.cache
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS_MarkupCompile.lref
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\MainWindow.baml
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.g.resources
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.AssemblyInfoInputs.cache
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.AssemblyInfo.cs
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.csproj.CoreCompileInputs.cache
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.sourcelink.json
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordLis.E08FE40F.Up2Date
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\refint\ChordListenerCS.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.pdb
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.genruntimeconfig.cache
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ref\ChordListenerCS.dll
