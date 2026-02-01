@@ -63,3 +63,5 @@ c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\refin
 c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.pdb
 c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordListenerCS.genruntimeconfig.cache
 c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ref\ChordListenerCS.dll
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordControl.baml
+c:\Users\Vinic\Desktop\Nova pasta\ChordListenerCS\obj\Debug\net9.0-windows\ChordControl.g.cs

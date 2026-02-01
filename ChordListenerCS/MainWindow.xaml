@@ -70,7 +70,11 @@
                      Text="Enter: Artist - Song Title" ToolTip="Format: Artist - Song Name (e.g., Beatles - Let It Be)"/> 
             
             <Button x:Name="BtnSearch" Grid.Column="1" Content="🔍 Search" Click="BtnSearch_Click"/>
-            <Button x:Name="BtnListen" Grid.Column="2" Content="🎙️ Auto-Listen" Click="BtnListen_Click" Background="#333" Foreground="White"/>
+            
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <Button x:Name="BtnListen" Content="🎙️ Auto-Listen" Click="BtnListen_Click" Background="#333" Foreground="White" Width="100"/>
+                <Button x:Name="BtnForceAI" Content="🧠 AI Only" Click="BtnForceAI_Click" Background="#6200EA" Foreground="White" ToolTip="Ignore lyrics and just listen to chords"/>
+            </StackPanel>
             
             <!-- Scroll Controls -->
             <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" Margin="15,0,0,0">
@@ -93,16 +97,43 @@
                 <ColumnDefinition Width="200"/>  <!-- Chords Right (New) -->
             </Grid.ColumnDefinitions>
 
-            <!-- Metadata Panel -->
-            <Border Grid.Column="0" Background="#1E1E1E" CornerRadius="8" Padding="15" Margin="0,0,15,0" Width="200" VerticalAlignment="Top">
-                <StackPanel>
-                    <Border Width="170" Height="170" Background="#111" CornerRadius="4" Margin="0,0,0,10">
-                        <TextBlock Text="🎵" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#333"/>
-                    </Border>
-                    <TextBlock x:Name="TxtSongTitle" Text="Song Title" FontSize="18" FontWeight="Bold" TextWrapping="Wrap"/>
-                    <TextBlock x:Name="TxtArtist" Text="Artist Name" FontSize="14" Foreground="#AAA" TextWrapping="Wrap"/>
-                </StackPanel>
-            </Border>
+    <!-- Left Column: Metadata + History -->
+            <Grid Grid.Column="0" Margin="0,0,15,0" Width="200">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/> <!-- Current Info -->
+                    <RowDefinition Height="*"/>    <!-- Spacer/History -->
+                </Grid.RowDefinitions>
+
+                <!-- Metadata Panel -->
+                <Border Grid.Row="0" Background="#1E1E1E" CornerRadius="8" Padding="15" Margin="0,0,0,15" VerticalAlignment="Top">
+                    <StackPanel>
+                        <Border Width="170" Height="170" Background="#111" CornerRadius="4" Margin="0,0,0,10">
+                            <TextBlock Text="🎵" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#333"/>
+                        </Border>
+                        <TextBlock x:Name="TxtSongTitle" Text="Song Title" FontSize="18" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="TxtArtist" Text="Artist Name" FontSize="14" Foreground="#AAA" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- History Panel -->
+                <Border Grid.Row="1" Background="#1E1E1E" CornerRadius="8" Padding="10" VerticalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="🕒 History" FontWeight="Bold" Foreground="#AAA" Margin="0,0,0,5"/>
+                        <ListBox x:Name="LstHistory" Grid.Row="1" Background="Transparent" BorderThickness="0" Foreground="#DDD" 
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="LstHistory_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DisplayName}" ToolTip="{Binding FullText}" TextTrimming="CharacterEllipsis"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </Border>
+            </Grid>
 
             <!-- Tab Viewer -->
             <Border Grid.Column="1" Background="#1E1E1E" CornerRadius="8" Padding="10">
@@ -123,13 +154,14 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Chord Reference" FontWeight="Bold" FontSize="14" Foreground="#AAA" Margin="0,0,0,10"/>
-                    <ScrollViewer Grid.Row="1">
-                        <TextBlock x:Name="TxtChordsReference" 
-                                   FontFamily="Consolas" 
-                                   FontSize="13" 
-                                   Foreground="#DDD"
-                                   Text="Chords used will appear here."
-                                   TextWrapping="Wrap"/>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl x:Name="IcChords" ItemsSource="{Binding DisplayedChords, RelativeSource={RelativeSource AncestorType=Window}}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
                     </ScrollViewer>
                 </Grid>
             </Border>
