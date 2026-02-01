@@ -137,22 +137,35 @@ def estimate_chords(file_path):
         # Decode optimal path
         chord_indices = viterbi_decoding(chroma, templates)
         
-        # Convert indices to names and collapse
-        detected_sequence = []
+        # Post-Processing: Group by chord and calculate duration
+        # FPS = 22050 / 512 ~= 43.066
+        fps = 22050 / 512
+        
+        grouped_chords = []
         if len(chord_indices) > 0:
             current_idx = chord_indices[0]
-            detected_sequence.append(labels[current_idx])
+            current_count = 1
             
             for idx in chord_indices[1:]:
-                if idx != current_idx:
-                    detected_sequence.append(labels[idx])
+                if idx == current_idx:
+                    current_count += 1
+                else:
+                    duration = current_count / fps
+                    # Only keep if duration is significant (> 0.2s) to reduce clutter?
+                    # Viterbi already smoothed it, so let's keep all or minor threshold
+                    if duration > 0.1:
+                        grouped_chords.append(f"{labels[current_idx]}:{duration:.2f}")
+                    
                     current_idx = idx
-        
-        # Post-Processing: cleanup fast oscillating errors if Viterbi didn't catch them
-        # (Viterbi usually handles this via transition penalties, but let's be safe)
-        
-        # Limit output
-        return " -> ".join(detected_sequence[:16])
+                    current_count = 1
+            
+            # Last one
+            duration = current_count / fps
+            if duration > 0.1:
+                grouped_chords.append(f"{labels[current_idx]}:{duration:.2f}")
+
+        # Return structured format: "C:1.5|G:2.0|Am:0.5"
+        return "|".join(grouped_chords)
         
     except Exception as e:
         return f"Chord Error: {str(e)}"

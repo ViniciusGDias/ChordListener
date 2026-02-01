@@ -459,17 +459,20 @@ namespace ChordListenerCS
         private System.Windows.Threading.DispatcherTimer? _continuousTimer;
         private int _recordingSecondsRemaining;
 
+        private DateTime _sessionStartTime;
+
         private void StartContinuousAiListening()
         {
             if (_isContinuousChecking) return;
             _isContinuousChecking = true;
+            _sessionStartTime = DateTime.Now; // Mark start time
 
             // UI
             BtnListen.Content = "🛑 Stop AI Stream";
             BtnListen.Background = Brushes.Crimson;
             StatusText.Text = "📡 Continuous AI Listening...";
             StatusText.Foreground = Brushes.Magenta;
-            TxtTabContent.Text = "--- Live Chord Stream ---\n(Listening for changes...)\n";
+            TxtTabContent.Text = "--- Live Chord Stream ---\n(Time)    | Chords (Duration)\n--------------------------------------------------\n";
             DisplayedChords.Clear();
 
             // Ensure we are recording
@@ -545,16 +548,48 @@ namespace ChordListenerCS
             // 3. Update UI
             if (result.StartsWith("AI_CHORDS:"))
             {
-                var chords = result.Replace("AI_CHORDS:", "").Trim();
-                if (string.IsNullOrWhiteSpace(chords)) return;
+                var raw = result.Replace("AI_CHORDS:", "").Trim();
+                if (string.IsNullOrWhiteSpace(raw)) return;
+
+                // Format: C:1.2|G:2.0|...
+                var segments = raw.Split('|');
+                var sbLine = new System.Text.StringBuilder();
+                var chordNamesForVisuals = new System.Text.StringBuilder();
+                
+                // Calculate approximate offset
+                var elapsed = DateTime.Now - _sessionStartTime;
+                var timeStr = $"{(int)elapsed.TotalMinutes:00}:{elapsed.Seconds:00}";
+                
+                sbLine.Append($"[{timeStr}] ");
+
+                foreach (var seg in segments)
+                {
+                    var parts = seg.Split(':');
+                    if (parts.Length == 2)
+                    {
+                        var chord = parts[0];
+                        // Try to parse duration to see if it's long enough to be a "bar"
+                        if (double.TryParse(parts[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double dur))
+                        {
+                            // Formatting: | C (2s) 
+                            sbLine.Append($"| {chord,-4} ({dur:0.0}s) ");
+                        }
+                        else 
+                        {
+                            sbLine.Append($"| {chord} ");
+                        }
+                        
+                        chordNamesForVisuals.Append(chord + " ");
+                    }
+                }
+                sbLine.Append("|"); // Closing bar
 
                 // Append text
-                TxtTabContent.Text += $"\n[{DateTime.Now:HH:mm:ss}] {chords}";
+                TxtTabContent.Text += $"\n{sbLine.ToString()}";
                 TabScrollViewer.ScrollToBottom();
 
-                // Append Visuals (Optional: Clear old ones? Or keep adding? Let's keep adding but limit to 8)
-                // We'll use a specific version of ExtractAndShowChords that appends
-                ExtractAndShowChords(chords, append: true);
+                // Append Visuals
+                ExtractAndShowChords(chordNamesForVisuals.ToString(), append: true);
             }
         }
 
